@@ -34,7 +34,7 @@ Print Hello World to the terminal, but red.
 
 int main() {
 	setTextColor(255,0,0);
-	cout<<"Hellow World"<<endl;
+	cout<<"Hello World"<<endl;
 	cout<<"\033[0m";
 };
 ```
