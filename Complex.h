@@ -4,7 +4,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-namespace dawnLIB 
+namespace vazLIB 
 {
 	namespace utils 
 	{
