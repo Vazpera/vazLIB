@@ -18,6 +18,8 @@ THen add your own `main()` function and compile and run.
 ### Complex Numbers
 Mutliply two complex numbers
 ```cpp
+#include <iostream>
+
 int main() {
 	Complex C1 = "1+0i"_c;
 	Complex C2 = "0+1i"_c;
@@ -28,6 +30,8 @@ int main() {
 ### Red 'Hello World'
 Print Hello World to the terminal, but red.
 ```cpp
+#include <iostream>
+
 int main() {
 	setTextColor(255,0,0);
 	cout<<"Hellow World"<<endl;
