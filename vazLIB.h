@@ -160,9 +160,9 @@ namespace vazLIB
 		data_types::Complex operator"" _c(const char *g, size_t size ) {
 			std::vector<std::string> words = utils::seperate(g, '+');
 			data_types::Complex x;
-			x.r=std::stoi(words[0]);
+			x.r=std::stof(words[0]);
 			std::string imaginary = utils::seperate(words[1], 'i')[0];
-			x.i=std::stoi(imaginary);
+			x.i=std::stof(imaginary);
 			return x;
 		};
 		namespace time 
