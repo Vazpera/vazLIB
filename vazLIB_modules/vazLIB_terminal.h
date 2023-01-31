@@ -10,7 +10,7 @@ namespace vazLIB
 	namespace utils
 	{
 		/* Terminal Manipulation */
-		void setTextColor(int r = 255, int g = 255, int b = 255) {
+		inline void setTextColor(int r = 255, int g = 255, int b = 255) {
 		  std::string s = "\033[38;2;";
 		  s += std::to_string(r) + ";";
 		  s += std::to_string(g) + ";";
@@ -18,7 +18,7 @@ namespace vazLIB
 		  s += "m";
 		  std::cout << s;
 		};
-		void setBackgroundColor(int r = 0, int g = 0, int b = 0) {
+		inline void setBackgroundColor(int r = 0, int g = 0, int b = 0) {
 		  std::string s = "\033[48;2;";
 		  s += std::to_string(r) + ";";
 		  s += std::to_string(g) + ";";
@@ -26,7 +26,7 @@ namespace vazLIB
 		  s += "m";
 		  std::cout << s;
 		};
-		void moveCursor(int x, int y) {
+		inline void moveCursor(int x, int y) {
 			std::string s = "\033[";
 			s+=std::to_string(x)+";";
 			s+=std::to_string(y)+"H";
@@ -34,9 +34,9 @@ namespace vazLIB
 		}
 
 		/* Getch Functions */
-		static struct termios old, current;
+		inline static struct termios old, current;
 		
-		void initTermios(int echo) {
+		inline void initTermios(int echo) {
 		  tcgetattr(0, &old);         /* grab old terminal i/o settings */
 		  current = old;              /* make new settings same as old settings */
 		  current.c_lflag &= ~ICANON; /* disable buffered i/o */
@@ -49,10 +49,10 @@ namespace vazLIB
 		}
 		
 		/* Restore old terminal i/o settings */
-		void resetTermios(void) { tcsetattr(0, TCSANOW, &old); }
+		inline void resetTermios(void) { tcsetattr(0, TCSANOW, &old); }
 		
 		/* Read 1 character - echo defines echo mode */
-		char getch_(int echo) {
+		inline char getch_(int echo) {
 		  char ch;
 		  initTermios(echo);
 		  ch = getchar();
@@ -61,13 +61,13 @@ namespace vazLIB
 		}
 		
 		/* Read 1 character without echo */
-		char getch(void) { return getch_(0); }
+		inline char getch(void) { return getch_(0); }
 		
 		/* Read 1 character with echo */
-		char getche(void) { return getch_(1); };
+		inline char getche(void) { return getch_(1); };
 
 		/* Tristate Getch */
-		char cGetch(char fillChar = '\0') {
+		inline char cGetch(char fillChar = '\0') {
 		  char s;
 		  if (fillChar == '\0') {
 		    s = getche();
@@ -79,7 +79,7 @@ namespace vazLIB
 		};
 
 		/* Getch a std::string */
-		std::string bulkGetch(int count, char fillChar = '\0') {
+		inline std::string bulkGetch(int count, char fillChar = '\0') {
 		  std::string str;
 		  char bufferChar;
 		  for (int i = 0; i < count; i++) {

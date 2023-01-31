@@ -17,7 +17,7 @@ namespace vazLIB
 				return std::sqrt(r*r+i*i);
 			}
 			/* Multiply two complex numbers */
-			Complex operator * (Complex two) {
+			inline Complex operator * (Complex two) {
 				Complex x;
 				x.r = (r*two.r-i*two.i);
 				x.i = (r*two.i+i*two.r);
@@ -25,7 +25,7 @@ namespace vazLIB
 			};
 
 			/* Add two complex numbers */
-			Complex operator + (Complex two) {
+			inline Complex operator + (Complex two) {
 				Complex x;
 				x.r = (r+two.r);
 				x.i = (i+two.i);
@@ -34,7 +34,7 @@ namespace vazLIB
 			
 		};
 		/* Insert complex number into stream */
-		std::ostream & operator<<(std::ostream &out, Complex &c) {
+		inline std::ostream & operator<<(std::ostream &out, Complex &c) {
 			out<<std::to_string(c.r)<<"+"<<std::to_string(c.i)<<"i";
 			return out;
 		};
@@ -43,7 +43,7 @@ namespace vazLIB
 	namespace literals 
 	{
 		/* Complex number literal */
-		data_types::Complex operator"" _c(const char *g, size_t size ) {
+		inline data_types::Complex operator"" _c(const char *g, size_t size ) {
 			std::vector<std::string> words = utils::seperate(g, '+');
 			data_types::Complex x;
 			x.r=std::stof(words[0]);

@@ -9,7 +9,7 @@ namespace vazLIB
 	namespace utils 
 	{
 		/* Seperate a std::string */
-		std::vector<std::string> seperate(std::string str, char delim) {
+		inline std::vector<std::string> seperate(std::string str, char delim) {
 		  std::string word = "";
 		  std::vector<std::string> words;
 		  for (auto x : str) {
@@ -24,7 +24,7 @@ namespace vazLIB
 		  return words;
 		};
 		/* Seperate a char* */
-		std::vector<std::string> seperate(char *str, char delim) {
+		inline std::vector<std::string> seperate(char *str, char delim) {
 			std::string s = str;
 		  std::string word = "";
 		  std::vector<std::string> words;
