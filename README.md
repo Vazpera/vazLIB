@@ -2,19 +2,22 @@
 ## Description
 vazLIB is a library that contains stuff that most peopel can't be bothered to rewrite for every program. It also contains  basic complex number calculation.
 ## Getting Started
-To get started using vazLIB, create a folder with `vazLIB	.h` and a file ending in `.cpp`. After this, add the following code to your C++ file.
-```cpp
-#include "vazLIB.h"
-
-using namespace std;
-using namespace vazLIB;
-using namespace vazLIB::literals;
-using namespace vazLIB::literals::time;
-using namespace vazLIB::utils;
-using namespace vazLIB::data_types;
+There are two ways to use vazLIB. For each, please include the following in your main `.cpp` file.
+```c++
+using namepsace vazLIB
+using namepsace vazLIB::utils
+using namepsace vazLIB::literals
+using namepsace vazLIB::data_types
 ```
-THen add your own header files and `main()` function and compile and run.
-
+___
+### Module-centric
+To use vazLIB modules, put the modules you wish to use inside the same folder as your `.cpp` file, and `#include "vazLIB_<module>.h`.
+___
+### Module Folder
+First, add a folder to your project `vazLIB_modules`, or download the one provided. Then, if no module are inside, put the all the modules inside. Outside the folder, add the file `vazLIB.h`, include this file inside the main `.cpp` file with the `#include` keyword.
+___
+### All at Once
+Add the file `vazLIB_all.h` to your project folder than include it in your main file using the `#include` keyword.
 ## Contents
 ### Literals
 Each one of these is contained within `vazLIB::literals`
